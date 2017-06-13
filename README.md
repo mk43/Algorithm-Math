@@ -4,7 +4,7 @@
 
 ---
 
-#### 1. BMP压缩成JPEG过程实现与分析
+#### [1. BMP压缩成JPEG过程实现与分析](http://fitzeng.org/2017/06/13/BMP2JPEG/)
 - 原图 : pic1.bmp <br/>
 <img src="https://raw.githubusercontent.com/mk43/Algo-Math/master/bmp2jpeg/pic1.bmp" width="400" height="400"/> <br/>
 - 压缩 : ybr.jpeg <br/>
