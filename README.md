@@ -4,12 +4,17 @@
 
 ---
 
-#### [1. BMP压缩成JPEG过程实现与分析](http://fitzeng.org/2017/06/13/BMP2JPEG/)
-- 原图 : pic1.bmp <br/>
-<img src="https://raw.githubusercontent.com/mk43/Algo-Math/master/bmp2jpeg/pic1.bmp" width="400" height="400"/> <br/>
-- 压缩 : ybr.jpeg <br/>
-<img src="https://raw.githubusercontent.com/mk43/Algo-Math/master/bmp2jpeg/ybr.jpeg" width="400" height="400"/> <br/>
-- 分量图: <br/>
-<img src="https://raw.githubusercontent.com/mk43/Algo-Math/master/bmp2jpeg/y.jpeg" width="240" height="240"/> <img src="https://raw.githubusercontent.com/mk43/Algo-Math/master/bmp2jpeg/b.jpeg" width="240" height="240"/> <img src="https://raw.githubusercontent.com/mk43/Algo-Math/master/bmp2jpeg/r.jpeg" width="240" height="240"/> 
+## [leetcode](https://www.nowcoder.com/ta/leetcode)
 
----
+> 主要是牛客网上 leetcode 的算法题实践. 在 Blog 包含自己的解法和对别人优秀解法的分析.
+
+ 序号 | 考点 | 题目                         | C/C++   | Java |
+-----|-----|------------------------------|---------|------|
+  01 | 树  | Minimum Depth of Binary Tree |  NULL   | [题解]() | 
+  02 | 栈  | evaluate-reverse-polish-notation | NULL| [题解]() |
+
+
+## 算法杂集
+> 在学习过程中遇到的一些有趣的算法和数学知识点记录.
+
+### [1. BMP压缩成JPEG过程实现与分析](http://fitzeng.org/2017/06/13/BMP2JPEG/)
