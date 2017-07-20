@@ -8,10 +8,10 @@
 
 > 主要是牛客网上 leetcode 的算法题实践. 在 Blog 包含自己的解法和对别人优秀解法的分析.
 
- 序号 | 考点 | 题目                         | C/C++   | Java |
------|-----|------------------------------|---------|------|
-  01 | 树  | Minimum Depth of Binary Tree |  NULL   | [题解]() | 
-  02 | 栈  | evaluate-reverse-polish-notation | NULL| [题解]() |
+ 序号 | 考点 |               题目               | C/C++   |        Java     
+:---:|:---:|:--------------------------------:|:-------:|:---------------:
+  01 | 树  | Minimum Depth of Binary Tree     |   NULL  | [题解](http://fitzeng.org/2017/07/17/AlgoAndMath/#jump 01)  
+  02 | 栈  | evaluate-reverse-polish-notation |   NULL  | [题解](http://fitzeng.org/2017/07/17/AlgoAndMath/#jump 02) 
 
 
 ## 算法杂集
