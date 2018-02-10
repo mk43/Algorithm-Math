@@ -1,0 +1,52 @@
+Minimum Depth of Binary Tree
+
+Evaluate the value of an arithmetic expression in Reverse Polish Notation.
+Valid operators are+,-,*,/. Each operand may be an integer or another expression.
+Some examples:
+  ["2", "1", "+", "3", "*"] -> ((2 + 1) * 3) -> 9
+  ["4", "13", "5", "/", "+"] -> (4 + (13 / 5)) -> 6
+
+
+
+import java.util.Stack;
+
+public class Solution {
+    public int evalRPN(String[] tokens) {
+        Stack<String> s = new Stack<>();
+        int op1 = 0;
+        int op2 = 0;
+        for (int i = 0; i < tokens.length; i++) {
+            switch (tokens[i]) {
+                case "+": {
+                    op1 = Integer.parseInt(s.pop());
+                    op2 = Integer.parseInt(s.pop());
+                    s.push(String.valueOf(op2 + op1));
+                    break;
+                }
+                case "-": {
+                    op1 = Integer.parseInt(s.pop());
+                    op2 = Integer.parseInt(s.pop());
+                    s.push(String.valueOf(op2 - op1));
+                    break;
+                }
+                case "*": {
+                    op1 = Integer.parseInt(s.pop());
+                    op2 = Integer.parseInt(s.pop());
+                    s.push(String.valueOf(op2 * op1));
+                    break;
+                }
+                case "/": {
+                    op1 = Integer.parseInt(s.pop());
+                    op2 = Integer.parseInt(s.pop());
+                    s.push(String.valueOf(op2 / op1));
+                    break;
+                }
+                default: {
+                    s.push(tokens[i]);
+                    break;
+                }
+            }
+        }
+        return Integer.parseInt(s.pop());
+    }
+}

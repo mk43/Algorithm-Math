@@ -1,0 +1,61 @@
+max-points-on-a-line
+
+Given n points on a 2D plane, find the maximum number of points that lie on the same straight line.
+
+
+
+/**
+ * Definition for a point.
+ * class Point {
+ *     int x;
+ *     int y;
+ *     Point() { x = 0; y = 0; }
+ *     Point(int a, int b) { x = a; y = b; }
+ * }
+ */
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class Solution {
+    public static int maxPoints(Point[] points) {
+        int size = points.length;
+        if (size == 0)
+            return 0;
+        else if (size == 1)
+            return 1;
+
+        int result = 2;
+        for (int i = 0; i < size; i++) {
+            int current = 1;
+            Map<Double, Integer> map = new HashMap<>();
+            int v = 0;
+            int dup = 0;
+            for (int j = 0; j < size; j++) {
+                if (j != i) {
+                    double dx = points[i].x - points[j].x;
+                    double dy = points[i].y - points[j].y;
+                    if (dx == 0 && dy == 0) {
+                        dup++;
+                    } else if (dx == 0) {
+                        v++;
+                        current = v + dup + 1 > current ? v + dup + 1: current;
+                    } else {
+                        double k = dy / dx;
+                        if (map.get(k) == null) {
+                            map.put(k, 1);
+                        } else {
+                            map.put(k, 1 + map.get(k));
+                        }
+                        current = map.get(k) + dup + 1 > current ? map.get(k) + dup + 1 : current;
+                    }
+                }
+            }
+            if (current == 1) {
+                current += dup;
+            }
+            result = current > result ? current : result;
+        }
+        return result;
+    }
+}
