@@ -1,0 +1,52 @@
+sort-list
+
+Sort a linked list in O(n log n) time using constant space complexity.
+
+
+
+/**
+ * Definition for singly-linked list.
+ * class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) {
+ *         val = x;
+ *         next = null;
+ *     }
+ * }
+ */
+public class Solution {
+    public static ListNode sortList(ListNode head) {
+        if (null == head || null == head.next) {
+            return head;
+        }
+        ListNode headStep = head;
+        ListNode head2Step = head.next;
+        while (null != head2Step && null != head2Step.next) {
+            headStep = headStep.next;
+            head2Step = head2Step.next.next;
+        }
+        ListNode l2 = sortList(headStep.next);
+        headStep.next = null;
+        ListNode l1 = sortList(head);
+
+        ListNode result = new ListNode(0);
+        ListNode pointer = result;
+        while (null != l1 && null != l2) {
+            if (l1.val <= l2.val) {
+                result.next = l1;
+                l1 = l1.next;
+            } else {
+                result.next = l2;
+                l2 = l2.next;
+            }
+            result = result.next;
+        }
+        if (null == l1) {
+            result.next = l2;
+        } else {
+            result.next = l1;
+        }
+        return pointer.next;
+    }
+}

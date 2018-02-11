@@ -1,0 +1,49 @@
+insertion-sort-list
+
+Sort a linked list using insertion sort.
+
+
+
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) {
+ *         val = x;
+ *         next = null;
+ *     }
+ * }
+ */
+public class Solution {
+    public ListNode insertionSortList(ListNode head) {
+        if (null == head || null == head.next) {
+            return head;
+        }
+        ListNode currentNode = head;
+        ListNode nextNode = head.next;
+        while (null != nextNode) {
+            if (currentNode.val > nextNode.val) {
+                if (head.val > nextNode.val) {
+                    currentNode.next = nextNode.next;
+                    nextNode.next = head;
+                    head = nextNode;
+                    nextNode = currentNode.next;
+                } else {
+                    ListNode p = head;
+                    while (p.next.val < nextNode.val) {
+                        p = p.next;
+                    }
+                    currentNode.next = nextNode.next;
+                    nextNode.next = p.next;
+                    p.next = nextNode;
+                    nextNode = currentNode.next;
+                }
+            } else {
+                currentNode = nextNode;
+                nextNode = nextNode.next;
+            }
+        }
+        return head;
+    }
+}

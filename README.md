@@ -13,6 +13,8 @@
   01 | 树  | Minimum Depth of Binary Tree     |   NULL  | [题解](http://fitzeng.org/2017/07/17/AlgoAndMath/#jump_01) 
   02 | 栈  | evaluate-reverse-polish-notation |   NULL  | [题解](http://fitzeng.org/2017/07/17/AlgoAndMath/#jump_02)
   03 |穷举 | max-points-on-a-line             |   NULL  | [题解](http://fitzeng.org/2017/07/17/AlgoAndMath/#jump_03) 
+  04 |链表 | sort-list                        |   NULL  | [题解](http://fitzeng.org/2017/07/17/AlgoAndMath/#jump_04)
+  05 |排序 | insertion-sort-list              |   NULL  | [题解](http://fitzeng.org/2017/07/17/AlgoAndMath/#jump_05)
 
 
 ## 算法杂集
