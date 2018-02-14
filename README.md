@@ -8,6 +8,9 @@
 
 > 主要是牛客网上 leetcode 的算法题实践. 在 Blog 包含自己的解法和对别人优秀解法的分析.
 
+- [1-10: leetcode 算法集锦](http://fitzeng.org/2017/07/17/AlgoAndMath/)
+- NEXT TODO --> [11-20: leetcode 算法集锦（二）](#)
+
  序号 | 考点 |               题目               | C/C++   |        Java     
 :---:|:---:|:--------------------------------:|:-------:|:---------------:
   01 | 树  | Minimum Depth of Binary Tree     |   NULL  | [题解](http://fitzeng.org/2017/07/17/AlgoAndMath/#jump_01) 
@@ -15,6 +18,11 @@
   03 |穷举 | max-points-on-a-line             |   NULL  | [题解](http://fitzeng.org/2017/07/17/AlgoAndMath/#jump_03) 
   04 |链表 | sort-list                        |   NULL  | [题解](http://fitzeng.org/2017/07/17/AlgoAndMath/#jump_04)
   05 |排序 | insertion-sort-list              |   NULL  | [题解](http://fitzeng.org/2017/07/17/AlgoAndMath/#jump_05)
+  06 | 树 | binary-tree-postorder-traversal   |   NULL  | [题解](http://fitzeng.org/2017/07/17/AlgoAndMath/#jump_06)
+  07 | 树 | binary-tree-preorder-traversal    |   NULL  | [题解](http://fitzeng.org/2017/07/17/AlgoAndMath/#jump_07)
+  08 |链表 | reorder-list                     |   NULL  | [题解](http://fitzeng.org/2017/07/17/AlgoAndMath/#jump_08)
+  09 |链表 | linked-list-cycle-ii             |   NULL  | [题解](http://fitzeng.org/2017/07/17/AlgoAndMath/#jump_09)
+  10 |链表 | linked-list-cycle                |   NULL  | [题解](http://fitzeng.org/2017/07/17/AlgoAndMath/#jump_10)
 
 
 ## 算法杂集
