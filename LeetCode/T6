@@ -1,0 +1,187 @@
+binary-tree-postorder-traversal
+
+Given a binary tree, return the postorder traversal of its nodes' values.
+
+For example:
+Given binary tree{1,#,2,3},
+
+   1
+    \
+     2
+    /
+   3
+
+return[3,2,1].
+
+Note: Recursive solution is trivial, could you do it iteratively?
+
+
+
+/**
+ * Definition for binary tree
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+
+Solution 1:
+
+import java.util.ArrayList;
+
+public class Solution {
+    public ArrayList<Integer> postorderTraversal(TreeNode root) {
+        if (null == root) {
+            return new ArrayList<Integer>();
+        }
+        ArrayList<Integer> left = postorderTraversal(root.left);
+        ArrayList<Integer> right = postorderTraversal(root.right);
+        ArrayList<Integer> result = new ArrayList<>();
+        if (0 < left.size()) {
+            result.addAll(left);
+        }
+        if (0 < right.size()) {
+            result.addAll(right);
+        }
+        result.add(root.val);
+        return result;
+    }
+}
+
+Solution 2:
+
+import java.util.ArrayList;
+import java.util.Stack;
+
+/**
+ * Definition for binary tree
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+
+import java.util.ArrayList;
+import java.util.Stack;
+
+public class Solution {
+    public static ArrayList<Integer> postorderTraversal(TreeNode root) {
+        if (null == root) {
+            return new ArrayList<Integer>();
+        }
+        Stack<TreeNode> stack = new Stack<>();
+        ArrayList<Integer> result = new ArrayList<>();
+        TreeNode currentNode = root;
+        boolean hasChildNode = false;
+        while (true) {
+            if (null != currentNode && Integer.MAX_VALUE != currentNode.val) {
+                stack.push(currentNode);
+            }
+            if (null != currentNode.right && Integer.MAX_VALUE != currentNode.right.val) {
+                stack.push(currentNode.right);
+                hasChildNode = true;
+            }
+            if (null != currentNode.left && Integer.MAX_VALUE != currentNode.left.val) {
+                stack.push(currentNode.left);
+                hasChildNode = true;
+            }
+            if (hasChildNode) {
+                currentNode = stack.pop();
+                if (0 == stack.size()) {
+                    result.add(currentNode.val);
+                    return result;
+                }
+                hasChildNode = false;
+            } else {
+                result.add(currentNode.val);
+                stack.pop();
+                currentNode.val = Integer.MAX_VALUE;
+                if (0 == stack.size()) {
+                    return result;
+                }
+                currentNode = stack.pop();
+            }
+        }
+    }
+}
+
+Others:
+
+/* 这个解法可能是最佳实践，思路清晰，易于理解。
+ * 核心思想是用栈做辅助空间，先从根往左一直入栈，直到为空，然后判断栈顶元素的右孩子，如果不为空且未被访问过，
+ * 则从它开始重复左孩子入栈的过程；否则说明此时栈顶为要访问的节点（因为左右孩子都是要么为空要么已访问过了），
+ * 出栈然后访问即可，接下来再判断栈顶元素的右孩子...直到栈空。
+ */
+import java.util.Stack;
+import java.util.ArrayList;
+public class Solution {
+    public ArrayList<Integer> postorderTraversal(TreeNode root) {
+        TreeNode p = root, r = null;        //P记录当前节点，r用来记录上一次访问的节点
+        Stack<TreeNode> s = new Stack<TreeNode>();
+        ArrayList<Integer> list = new ArrayList<Integer>();
+        while(p != null || !s.isEmpty()) {
+            if(p != null) {     //左孩子一直入栈，直到左孩子为空
+                s.push(p);
+                p = p.left;
+            } else {
+                p = s.peek();
+                p = p.right;
+                if(p != null && p != r) {   //如果栈顶元素的右孩子不为空，且未被访问过
+                    s.push(p);              //则右孩子进栈，然后重复左孩子一直进栈直到为空的过程
+                    p = p.left;
+                } else {
+                    p = s.pop();            //否则出栈，访问，r记录刚刚访问的节点
+                    list.add(p.val);
+                    r = p;
+                    p = null;
+                }
+            }
+        }
+        return list;
+    }
+}
+
+// 巧妙的方法：前序遍历 根->左->右 变成 根->右->左 结果再reverse一下
+vector<int> postorderTraversal(TreeNode *root)
+{
+    vector<int> res;
+    if(!root)
+        return res;
+    stack<TreeNode *> st;
+    st.push(root);
+    while(st.size())
+    {
+        TreeNode *temp = st.top();
+        st.pop();
+        res.push_back(temp->val);
+        if(temp->left)
+            st.push(temp->left);
+        if(temp->right)
+            st.push(temp->right);
+    }
+    reverse(res.begin(),res.end());
+    return res;
+}
+
+
+/**
+ *不使用递归解答，这才是最简单而且高效的方法吧。
+ *从后往前观察后序遍历后的结果就明白思路了。
+ */
+public ArrayList<Integer> postorderTraversal(TreeNode root) {
+  ArrayList<Integer> list = new ArrayList<>();
+  Stack<TreeNode> stack = new Stack<>();
+  if (root == null) return list;
+  stack.push(root);
+  while (!stack.isEmpty()) {
+      TreeNode node = stack.pop();
+      list.add(0, node.val);//每次插入到头部
+      if (node.left != null) stack.push(node.left);
+      if (node.right != null) stack.push(node.right);
+  }
+  return list;
+}
