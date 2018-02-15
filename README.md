@@ -23,6 +23,8 @@
   08 |链表 | reorder-list                     |   NULL  | [题解](http://fitzeng.org/2017/07/17/AlgoAndMath/#jump_08)
   09 |链表 | linked-list-cycle-ii             |   NULL  | [题解](http://fitzeng.org/2017/07/17/AlgoAndMath/#jump_09)
   10 |链表 | linked-list-cycle                |   NULL  | [题解](http://fitzeng.org/2017/07/17/AlgoAndMath/#jump_10)
+  11 |动态规划| word-break-ii                  |   NULL  | [题解](http://fitzeng.org/2018/02/14/AlgoAndMath2/#jump_11)  
+  12 |动态规划| word-break                     |   NULL  | [题解](http://fitzeng.org/2018/02/14/AlgoAndMath2/#jump_12) 
 
 
 ## 算法杂集
