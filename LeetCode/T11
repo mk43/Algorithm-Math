@@ -1,0 +1,37 @@
+word-break-ii
+
+Given a string s and a dictionary of words dict, add spaces in s to construct a sentence where each word is a valid dictionary word.
+
+Return all such possible sentences.
+
+For example, given
+s ="catsanddog",
+dict =["cat", "cats", "and", "sand", "dog"].
+
+A solution is["cats and dog", "cat sand dog"].
+
+
+
+import java.util.ArrayList;
+import java.util.Set;
+
+public class Solution {
+    public static ArrayList<String> wordBreak(String s, Set<String> dict) {
+        ArrayList<String> result = new ArrayList<>();
+        ArrayList<String> temp = new ArrayList<>();
+        for (int i = s.length() - 1; i >= 0; --i) {
+            String word = s.substring(i, s.length());
+            if (dict.contains(word)) {
+                temp = wordBreak(s.substring(0, i), dict);
+                if (0 == temp.size() && i == 0) {
+                    result.add(word);
+                } else {
+                    for (String str : temp) {
+                        result.add(str + " " + word);
+                    }
+                }
+            }
+        }
+        return result;
+    }
+}
